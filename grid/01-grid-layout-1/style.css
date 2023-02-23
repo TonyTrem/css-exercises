@@ -8,6 +8,23 @@ body, html {
   height: 100%;
   padding: 16px;
   box-sizing: border-box;
+  display: grid;
+  /* The gap is 15px
+- The grid has two columns
+- The grid has four rows
+- The second column is three times larger than the first
+- The third row is five times larger than the others
+- The header and footer elements span across both columns
+- The sidebar element only spans across the first column
+- The nav and article elements span across the second column */
+  grid-gap: 15px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 5fr 1fr 1fr;
+  grid-template-areas: "header header"
+                       "sidebar nav"
+                       "sidebar article"
+                       "footer footer";
+
 }
 
 .container div {
@@ -20,18 +37,22 @@ body, html {
 }
 
 .header {
+  grid-area: header;
   background-color: #FFDE22;
 }
 
 .sidebar {
+  grid-area: sidebar;
   background-color: #FF7755;
 }
 
 .nav {
+  grid-area: nav;
   background-color: #00DDFF;
 }
 
 .article {
+  grid-area: article;
   background-color: #bccbde;
 }
 
@@ -43,5 +64,6 @@ body, html {
 }
 
 .footer {
+  grid-area: footer;
   background-color: #393f4d;
 }
